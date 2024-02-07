@@ -10,7 +10,7 @@
     
 {% include "./includes/navbar.html" %}
 
-{% if messages %}
+{% if messages %}   
         {% for message in messages %}
         <div class="bg-{% if message.tags %}{{message.tags}}{% else %}success{% endif %} bg-gradient text-center text-white py-4">
                 {{message}}
