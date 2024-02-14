@@ -132,4 +132,6 @@ dmypy.json
 .idea
 
 media/
+
+staticfiles_build/
 static/

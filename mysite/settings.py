@@ -24,9 +24,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-+qow*+m7k#48oki6l=bd889pnyco8v--(#4_qffskgp2^u#=m)'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 MEDIA_URL = '/media/'   
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
@@ -60,8 +60,6 @@ ROOT_URLCONF = 'mysite.urls'
 
 TEMPLATES_DIR = os.path.join(BASE_DIR,"templates")
 
-print(TEMPLATES_DIR)
-
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -85,9 +83,13 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+    'default': {    
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'railway',
+        'USER': 'postgres',
+        'PASSWORD': 'b6AG*bFA*fF*EGF32ef1faE32cBcEa2a',
+        'HOST': 'monorail.proxy.rlwy.net',
+        'PORT': '15200',
     }
 }
 
@@ -127,6 +129,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
 STATIC_URL = 'static/'
+
+STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
